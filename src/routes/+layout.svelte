@@ -7,6 +7,7 @@
 </script>
 
 <SvelteToast/>
+
 <nav class= navbar>
 	<div class="logo">Staplers and Scanners</div>
 	<ul class="navlinks">
