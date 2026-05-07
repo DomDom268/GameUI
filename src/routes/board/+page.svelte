@@ -48,7 +48,7 @@
             });
 
             const data = await response.json();
-            toast.push(data.message)
+            toast.push(data.message);
             startMessage = data.message;
             game_id = data.game_id;
             showIconPicker = true;
@@ -71,6 +71,7 @@
             });
 
             const data = await response.json();
+            toast.push(data.message);
             iconMessage = data.message;
         } catch(err) {
             console.error("Error submitting icons:", err);
