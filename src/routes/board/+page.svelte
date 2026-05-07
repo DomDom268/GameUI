@@ -232,9 +232,9 @@
         {/if}
     </button>
 
-    {#if startMessage}
+    <!-- {#if startMessage}
         <p>toast.push("{startMessage}")</p>
-    {/if}
+    {/if} -->
 
     <button class="button" 
         onclick={() => handleRoll()} disabled = {!game_id}>
@@ -246,13 +246,13 @@
     </button>
 
     {#if rollResult}
-        <p>toast.push("{rollResult}")</p>
+        <p>{rollResult}</p>
     {/if}
     {#if moveMessage}
-        <p>toast.push("{moveMessage}")</p>
+        <p>{moveMessage}</p>
     {/if}
     {#if nextTurn}
-        <p>toast.push("{nextTurn}")</p>
+        <p>{nextTurn}</p>
     {/if}
 
     <button class="button" 
@@ -270,12 +270,11 @@
     </button>
 
     {#if resetMessage}
-        <p>toast.push("{resetMessage}")</p>
+        <p>{resetMessage}</p>
     {/if}
 
     {#if endMessage}
-        {startloading = true}
-        <p>toast.push("{endMessage}")</p>
+        <p>{endMessage}</p>
     {/if}
 </div>
 
