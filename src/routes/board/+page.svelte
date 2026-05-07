@@ -246,13 +246,13 @@
     </button>
 
     {#if rollResult}
-        <p>{rollResult}</p>
+        <p>toast.push("{rollResult}")</p>
     {/if}
     {#if moveMessage}
-        <p>{moveMessage}</p>
+        <p>toast.push("{moveMessage}")</p>
     {/if}
     {#if nextTurn}
-        <p>{nextTurn}</p>
+        <p>toast.push("{nextTurn}")</p>
     {/if}
 
     <button class="button" 
@@ -270,12 +270,12 @@
     </button>
 
     {#if resetMessage}
-        <p>{resetMessage}</p>
+        <p>toast.push("{resetMessage}")</p>
     {/if}
 
     {#if endMessage}
         {startloading = true}
-        <p>{endMessage}</p>
+        <p>toast.push("{endMessage}")</p>
     {/if}
 </div>
 
