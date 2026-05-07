@@ -72,7 +72,7 @@
 
             const data = await response.json();
             toast.push(data.message);
-            iconMessage = data.message;
+            // iconMessage = data.message;
         } catch(err) {
             console.error("Error submitting icons:", err);
         }
@@ -89,9 +89,11 @@
             });
 
             const data = await response.json();
-            endMessage = data.message;
+            // endMessage = data.message;
+            toast.push(data.message);
         } catch(err) {
-            endMessage = "Error ending game";
+            // endMessage = "Error ending game";
+            toast.push("Error ending game");
         }
     }
 
@@ -126,8 +128,10 @@
             const data = await response.json();
 
             rollResult = data.message;
+            toast.push(data.message);
         } catch (err) {
             rollResult = "Error rolling dice";
+            toast.push(rollResult);
         } finally {
             rollLoading = false;
         }   
@@ -144,7 +148,7 @@
             });
 
             const data = await response.json();
-            moveMessage = data.message;
+            toast.push(data.message);
         } catch (err) {
             console.error("Error moving player:", err);
         }
@@ -162,6 +166,7 @@
             });
             const data = await response.json();
             nextTurn = data.message;
+            toast.push(data.message);
 
         } catch (err) {
             console.error("Error ending turn:", err);
@@ -181,9 +186,11 @@
             }); 
 
             const data = await response.json();
-            resetMessage = data.message;
+            // resetMessage = data.message;
+            toast.push(data.message);
         } catch(err){
-            resetMessage = "Error resetting game";
+            // resetMessage = "Error resetting game";
+            toast.push("Error resetting game");
         } finally {
             resetloading = false;
         }
