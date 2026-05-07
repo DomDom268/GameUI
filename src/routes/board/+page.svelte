@@ -48,6 +48,7 @@
             });
 
             const data = await response.json();
+            toast.push(data.message)
             startMessage = data.message;
             game_id = data.game_id;
             showIconPicker = true;
