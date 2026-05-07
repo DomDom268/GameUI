@@ -27,6 +27,7 @@
     let game_id = $state("");
     let player_name = $state(0);
     let nextTurn = $state("");
+    let playerPos = $state(0);
     let selectedIcon: Record<string, string> = {
         1:"",
         2:"",
@@ -34,6 +35,10 @@
         4:""
     }
     const icons = ['red','blue','green','yellow'];
+
+    function moveIcon(newIndex:number) {
+        playerPos = newIndex;
+    }
 
     async function start(numPlayers:number) {
         startloading = true;
@@ -296,11 +301,11 @@
         
         <button 
             class="cells"
-            onclick={() => alert(`Clicked ${cell.row}, ${cell.col}`)}
-        >
-                {cell.row}{cell.col}
-            
-</button>
+            onclick = {() => moveIcon(cell.row*size + cell.col)}>
+                {#if playerPos === cell.row*size + cell.col}
+                    <div class="icon"></div>
+                {/if}
+        </button>
     {/each}
 </div>
 
