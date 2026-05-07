@@ -4,6 +4,7 @@
 
 <script lang="ts">
 	
+    import {toast} from '@zerodevx/svelte-toast';
 
     const size = 10;
     const cells = Array.from({ length:size*size},(_,i)=>{
@@ -232,7 +233,7 @@
     </button>
 
     {#if startMessage}
-        <p>{startMessage}</p>
+        <p>toast.push("{startMessage}")</p>
     {/if}
 
     <button class="button" 
