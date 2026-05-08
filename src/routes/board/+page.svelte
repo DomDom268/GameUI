@@ -303,7 +303,7 @@
             class="cells"
             onclick = {() => moveIcon(cell.row*size + cell.col)}>
                 {#if playerPos === cell.row*size + cell.col}
-                    <div class="icon"></div>
+                    <div class={selectedIcon[player_name]}></div>
                 {/if}
         </button>
     {/each}
