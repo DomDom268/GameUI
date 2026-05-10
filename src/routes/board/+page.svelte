@@ -315,19 +315,22 @@
 
 <div class="grid">
     {#each cells as cell}
-        
-        <button 
-            class="cells"
-            onclick = {() => moveIcon(cell.row*size + cell.col)}
-        >
-            <div class="tile-icons">
-                {#each Object.entries(playerPositions) as [player, position]}
-                    {#if position === cell.row*size + cell.col}
-                        <div class={selectedIcon[player]}></div>
-                    {/if}
-                {/each}
-            </div>
-        </button>
+        {#if cell.row*size + cell.col === 0}
+            <button class = "cells">Start</button>
+        {:else}
+            <button 
+                class="cells"
+                onclick = {() => moveIcon(cell.row*size + cell.col)}
+            >
+                <div class="tile-icons">
+                    {#each Object.entries(playerPositions) as [player, position]}
+                        {#if position === cell.row*size + cell.col}
+                            <div class={selectedIcon[player]}></div>
+                        {/if}
+                    {/each}
+                </div>
+            </button>
+        {/if}
     {/each}
 </div>
 
