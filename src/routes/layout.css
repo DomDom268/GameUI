@@ -104,7 +104,7 @@
     transition: all 0.2s ease;
 }
 
-tile-icon {
+tile-icons {
     display:grid;
     grid-template-columnns: repeat(2,1fr);
     width: 100%;
