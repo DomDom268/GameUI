@@ -320,11 +320,13 @@
             class="cells"
             onclick = {() => moveIcon(cell.row*size + cell.col)}
         >
-            {#each Object.entries(playerPositions) as [player, position]}
-                {#if position === cell.row*size + cell.col}
-                    <div class={selectedIcon[player]}></div>
-                {/if}
-            {/each}
+            <div class="tile-icons">
+                {#each Object.entries(playerPositions) as [player, position]}
+                    {#if position === cell.row*size + cell.col}
+                        <div class={selectedIcon[player]}></div>
+                    {/if}
+                {/each}
+            </div>
         </button>
     {/each}
 </div>
