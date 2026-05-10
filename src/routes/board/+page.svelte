@@ -27,23 +27,29 @@
     let game_id = $state("");
     let player_name = $state(0);
     let nextTurn = $state("");
-    let playerPositions: Record<string, number> = {
+    let playerPositions: Record<string, number> = $state({
         1:0,
         2:0,
         3:0,
         4:0
-    }
-    let activePlayer = $state(1);
-    let selectedIcon: Record<string, string> = {
+    });
+
+    let activePlayer = $state(0);
+    let selectedIcon: Record<string, string> = $state({
         1:"",
         2:"",
         3:"",
         4:""
-    }
+    });
     const icons = ['red','blue','green','yellow'];
 
     function moveIcon(newIndex:number) {
         playerPositions[activePlayer]= newIndex;
+        
+        // playerPositions = {
+        //     ...playerPositions,
+        //     [activePlayer]: newIndex
+        // }
     }
 
     async function start(numPlayers:number) {
@@ -83,6 +89,7 @@
 
             const data = await response.json();
             toast.push(data.message);
+            // selectedIcon = selectedIcon;
             // iconMessage = data.message;
         } catch(err) {
             console.error("Error submitting icons:", err);
@@ -301,6 +308,9 @@
 
 <div>
     <p>Game ID: {game_id}</p>
+    <p>Current Player: {activePlayer}</p>
+    <p>Player Positions: {JSON.stringify(playerPositions)}</p>
+    <p>Selected Icons: {JSON.stringify(selectedIcon)}</p>
 </div>
 
 <div class="grid">
