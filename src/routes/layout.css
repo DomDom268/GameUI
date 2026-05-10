@@ -109,13 +109,10 @@ tile-icons {
     grid-template-columnns: repeat(2,1fr);
     width: 100%;
     height: 100%;
+    place-items: center
 }
 
 .red {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     width: 10%;
     height: 10%;
     background-color: red;
@@ -124,37 +121,25 @@ tile-icons {
 }
 
 .blue {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     width: 10%;
     height: 10%;
-    background-color: red;
+    background-color: blue;
     border-radius: 50%;
     transition: all 0.2s ease;
 }
 
 .green {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     width: 10%;
     height: 10%;
-    background-color: red;
+    background-color: green;
     border-radius: 50%;
     transition: all 0.2s ease;
 }
 
 .yellow {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     width: 10%;
     height: 10%;
-    background-color: red;
+    background-color: yellow;
     border-radius: 50%;
     transition: all 0.2s ease;
 }
