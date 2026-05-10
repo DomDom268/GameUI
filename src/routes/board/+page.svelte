@@ -27,7 +27,13 @@
     let game_id = $state("");
     let player_name = $state(0);
     let nextTurn = $state("");
-    let playerPos = $state(0);
+    let playerPositions: Record<string, number> = {
+        1:0,
+        2:0,
+        3:0,
+        4:0
+    }
+    let activePlayer = $state(1);
     let selectedIcon: Record<string, string> = {
         1:"",
         2:"",
@@ -37,7 +43,7 @@
     const icons = ['red','blue','green','yellow'];
 
     function moveIcon(newIndex:number) {
-        playerPos = newIndex;
+        playerPositions[activePlayer]= newIndex;
     }
 
     async function start(numPlayers:number) {
@@ -113,6 +119,7 @@
 
             const data = await response.json();
             player_name = data.current_turn
+            activePlayer = player_name;
         } catch(err) {
             console.error("Error fetching game details:", err);
         }
@@ -301,10 +308,13 @@
         
         <button 
             class="cells"
-            onclick = {() => moveIcon(cell.row*size + cell.col)}>
-                {#if playerPos === cell.row*size + cell.col}
-                    <div class={selectedIcon[player_name]}></div>
+            onclick = {() => moveIcon(cell.row*size + cell.col)}
+        >
+            {#each Object.entries(playerPositions) as [player, position]}
+                {#if position === cell.row*size + cell.col}
+                    <div class={selectedIcon[player]}></div>
                 {/if}
+            {/each}
         </button>
     {/each}
 </div>
